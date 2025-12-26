@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-950 text-dark-100 antialiased;
+  }
+  
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+  
+  ::selection {
+    @apply bg-primary-500/30 text-white;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-500;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute -top-10 left-4 z-50 bg-primary-600 text-white px-4 py-2 rounded-md transition-all duration-200;
+  }
+  
+  .skip-link:focus {
+    @apply top-4;
+  }
+  
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-spacing {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-dark-900/50 backdrop-blur-xl border border-dark-700/50 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-primary-500/50 hover:shadow-glow;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-accent-cyan to-primary-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-blue {
+    @apply bg-gradient-to-r from-primary-400 to-accent-cyan bg-clip-text text-transparent;
+  }
+
+  /* Neural network background pattern */
+  .neural-bg {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  }
+
+  /* Data grid pattern */
+  .grid-bg {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  }
+
+  /* Prose for case studies */
+  .prose-dark h2 {
+    @apply text-2xl font-semibold text-white mb-4 mt-8;
+  }
+  
+  .prose-dark h3 {
+    @apply text-xl font-medium text-dark-100 mb-3 mt-6;
+  }
+  
+  .prose-dark p {
+    @apply text-dark-300 leading-relaxed mb-4;
+  }
+  
+  .prose-dark ul {
+    @apply list-disc list-inside space-y-2 text-dark-300 mb-4;
+  }
+  
+  .prose-dark li {
+    @apply leading-relaxed;
+  }
+
+  /* Tech chip */
+  .tech-chip {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium 
+           bg-primary-500/10 text-primary-400 border border-primary-500/20
+           transition-all duration-200 hover:bg-primary-500/20 hover:border-primary-500/40;
+  }
+
+  /* Metric card */
+  .metric-card {
+    @apply glass-card p-6 text-center;
+  }
+
+  .metric-value {
+    @apply text-3xl sm:text-4xl font-bold gradient-text-blue mb-2;
+  }
+
+  .metric-label {
+    @apply text-sm text-dark-400;
+  }
+
+  /* Terminal styling */
+  .terminal {
+    @apply bg-dark-950 border border-dark-700 rounded-lg overflow-hidden;
+  }
+
+  .terminal-header {
+    @apply flex items-center gap-2 px-4 py-2 bg-dark-900 border-b border-dark-700;
+  }
+
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .terminal-body {
+    @apply p-4 font-mono text-sm text-dark-300;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-dark-700 last:pb-0;
+  }
+
+  .timeline-dot {
+    @apply absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary-500 border-4 border-dark-950;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
