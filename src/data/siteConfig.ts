@@ -3,6 +3,7 @@ export const siteConfig = {
   role: 'AI Software Engineer & Computer Scientist',
   tagline: 'Building intelligent software systems that scale',
   email: 'gpatinoc92@gmail.com',
+  location: 'United States',
   heroTagline: 'I build software products and AI features for real users, from problem framing and system design to implementation and deployment. I prioritize software that scales and stays secure and dependable after launch.',
   
   social: {
@@ -24,6 +25,7 @@ export const siteConfig = {
     { label: 'Full Stack Development', description: 'React, Node.js, databases, and cloud infrastructure' },
     { label: 'Data Engineering', description: 'ETL pipelines, analytics, and real-time data processing' },
     { label: 'DevOps & Platform', description: 'CI/CD, containerization, monitoring, and infrastructure as code' },
+    { label: 'Embedded & IoT', description: 'FreeRTOS, ESP32, STM32, Raspberry Pi, and connected device ecosystems' },
   ],
 
   trustSignals: [
@@ -39,5 +41,6 @@ export const siteConfig = {
     { category: 'Frontend', tools: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'] },
     { category: 'Cloud & DevOps', tools: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions'] },
     { category: 'Data', tools: ['Apache Kafka', 'Spark', 'Airflow', 'dbt', 'Pandas'] },
+    { category: 'Embedded', tools: ['FreeRTOS', 'ESP-IDF', 'STM32 HAL', 'MQTT', 'Raspberry Pi'] },
   ],
 }

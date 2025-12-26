@@ -8,7 +8,12 @@ const Home = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'))
 const HowIWork = lazy(() => import('./pages/HowIWork'))
-const Resume = lazy(() => import('./pages/Resume'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Blog = lazy(() => import('./pages/Blog'))
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'))
+const Tutorials = lazy(() => import('./pages/Tutorials'))
+const TutorialDetail = lazy(() => import('./pages/TutorialDetail'))
 
 function App() {
   return (
@@ -19,7 +24,12 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/how-i-work" element={<HowIWork />} />
-          <Route path="/resume" element={<Resume />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/tutorials" element={<Tutorials />} />
+          <Route path="/tutorials/:slug" element={<TutorialDetail />} />
         </Routes>
       </Suspense>
     </Layout>

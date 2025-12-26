@@ -1,12 +1,49 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { MenuIcon, CloseIcon } from './Icons'
 
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/projects', label: 'Projects' },
-  { to: '/how-i-work', label: 'How I Work' },
-  { to: '/resume', label: 'Resume' },
+  { to: '/tutorials', label: 'Tutorials', hasDropdown: true },
+  { to: '/blog', label: 'Blog' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+]
+
+const tutorialCategories = [
+  { 
+    to: '/tutorials?category=AI', 
+    label: 'AI',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    )
+  },
+  { 
+    to: '/tutorials?category=Software Engineering', 
+    label: 'Software Engineering',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    )
+  },
+  { 
+    to: '/tutorials?category=Embedded Systems & IoT', 
+    label: 'Embedded Systems & IoT',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        <circle cx="9" cy="9" r="1" />
+        <circle cx="15" cy="9" r="1" />
+        <circle cx="9" cy="15" r="1" />
+        <circle cx="15" cy="15" r="1" />
+        <path d="M12 2v2m0 16v2M2 12h2m16 0h2" />
+      </svg>
+    )
+  },
 ]
 
 // Animated AI Logo Component
@@ -83,12 +120,28 @@ function AnimatedLogo() {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [tutorialsDropdownOpen, setTutorialsDropdownOpen] = useState(false)
+  const [mobileTutorialsOpen, setMobileTutorialsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
 
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false)
+    setTutorialsDropdownOpen(false)
+    setMobileTutorialsOpen(false)
   }, [location])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setTutorialsDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   // Add shadow on scroll
   useEffect(() => {
@@ -132,34 +185,87 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1 bg-dark-900/50 backdrop-blur-sm rounded-full p-1.5 border border-dark-700/50">
             {navItems.map((item, index) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) =>
-                  `relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? 'text-white bg-gradient-to-r from-primary-500 to-primary-600 shadow-lg shadow-primary-500/25'
-                      : 'text-dark-300 hover:text-white hover:bg-dark-800/50'
-                  }`
-                }
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {({ isActive }) => (
-                  <>
+              item.hasDropdown ? (
+                <div key={item.to} className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setTutorialsDropdownOpen(!tutorialsDropdownOpen)}
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
+                      location.pathname.startsWith('/tutorials')
+                        ? 'text-white bg-gradient-to-r from-primary-500 to-primary-600 shadow-lg shadow-primary-500/25'
+                        : 'text-dark-300 hover:text-white hover:bg-dark-800/50'
+                    }`}
+                  >
                     {item.label}
-                    {isActive && (
-                      <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500/20 to-accent-cyan/20 blur-sm -z-10" />
-                    )}
-                  </>
-                )}
-              </NavLink>
+                    <svg 
+                      className={`w-4 h-4 transition-transform ${tutorialsDropdownOpen ? 'rotate-180' : ''}`}
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Dropdown menu */}
+                  {tutorialsDropdownOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-64 bg-dark-900 border border-dark-700 rounded-xl shadow-xl shadow-black/50 overflow-hidden z-50">
+                      <Link
+                        to="/tutorials"
+                        className="flex items-center gap-3 px-4 py-3 text-white hover:bg-dark-800 transition-colors border-b border-dark-700"
+                        onClick={() => setTutorialsDropdownOpen(false)}
+                      >
+                        <svg className="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        <div>
+                          <div className="font-medium">All Tutorials</div>
+                          <div className="text-xs text-gray-500">Browse all categories</div>
+                        </div>
+                      </Link>
+                      {tutorialCategories.map((category) => (
+                        <Link
+                          key={category.to}
+                          to={category.to}
+                          className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-dark-800 transition-colors"
+                          onClick={() => setTutorialsDropdownOpen(false)}
+                        >
+                          <span className="text-cyan-400">{category.icon}</span>
+                          <span>{category.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      isActive
+                        ? 'text-white bg-gradient-to-r from-primary-500 to-primary-600 shadow-lg shadow-primary-500/25'
+                        : 'text-dark-300 hover:text-white hover:bg-dark-800/50'
+                    }`
+                  }
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {({ isActive }) => (
+                    <>
+                      {item.label}
+                      {isActive && (
+                        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500/20 to-accent-cyan/20 blur-sm -z-10" />
+                      )}
+                    </>
+                  )}
+                </NavLink>
+              )
             ))}
           </div>
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="mailto:gpatinoc92@gmail.com"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-primary-400 border border-primary-500/30 hover:bg-primary-500/10 hover:border-primary-500/50 transition-all duration-300 group"
             >
               <span className="relative flex h-2 w-2">
@@ -167,7 +273,7 @@ export default function Header() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span>Available</span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -194,36 +300,86 @@ export default function Header() {
         <div
           id="mobile-menu"
           className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${
-            mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            mobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="py-4 space-y-2 border-t border-dark-800/50">
             {navItems.map((item, index) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
-                    isActive
-                      ? 'text-white bg-gradient-to-r from-primary-500/20 to-accent-cyan/10 border border-primary-500/30'
-                      : 'text-dark-300 hover:text-white hover:bg-dark-800/50'
-                  }`
-                }
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                {({ isActive }) => (
-                  <>
-                    <span className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-primary-500' : 'bg-dark-600'}`} />
-                    {item.label}
-                  </>
-                )}
-              </NavLink>
+              item.hasDropdown ? (
+                <div key={item.to}>
+                  <button
+                    onClick={() => setMobileTutorialsOpen(!mobileTutorialsOpen)}
+                    className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
+                      location.pathname.startsWith('/tutorials')
+                        ? 'text-white bg-gradient-to-r from-primary-500/20 to-accent-cyan/10 border border-primary-500/30'
+                        : 'text-dark-300 hover:text-white hover:bg-dark-800/50'
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className={`w-2 h-2 rounded-full transition-all duration-300 ${location.pathname.startsWith('/tutorials') ? 'bg-primary-500' : 'bg-dark-600'}`} />
+                      {item.label}
+                    </span>
+                    <svg 
+                      className={`w-4 h-4 transition-transform ${mobileTutorialsOpen ? 'rotate-180' : ''}`}
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Mobile dropdown */}
+                  <div className={`overflow-hidden transition-all duration-300 ${mobileTutorialsOpen ? 'max-h-60 mt-2' : 'max-h-0'}`}>
+                    <div className="ml-6 space-y-1 border-l-2 border-dark-700 pl-4">
+                      <Link
+                        to="/tutorials"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-dark-800/50 transition-colors"
+                      >
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        All Tutorials
+                      </Link>
+                      {tutorialCategories.map((category) => (
+                        <Link
+                          key={category.to}
+                          to={category.to}
+                          className="flex items-center gap-2 px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-dark-800/50 transition-colors"
+                        >
+                          <span className="text-cyan-400">{category.icon}</span> {category.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
+                      isActive
+                        ? 'text-white bg-gradient-to-r from-primary-500/20 to-accent-cyan/10 border border-primary-500/30'
+                        : 'text-dark-300 hover:text-white hover:bg-dark-800/50'
+                    }`
+                  }
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  {({ isActive }) => (
+                    <>
+                      <span className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-primary-500' : 'bg-dark-600'}`} />
+                      {item.label}
+                    </>
+                  )}
+                </NavLink>
+              )
             ))}
             
             {/* Mobile CTA */}
             <div className="pt-4 border-t border-dark-800/50">
-              <a
-                href="mailto:gpatinoc92@gmail.com"
+              <Link
+                to="/contact"
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-base font-medium text-white bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 transition-all duration-300"
               >
                 <span className="relative flex h-2 w-2">
@@ -231,7 +387,7 @@ export default function Header() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                 </span>
                 Get in Touch
-              </a>
+              </Link>
             </div>
           </div>
         </div>

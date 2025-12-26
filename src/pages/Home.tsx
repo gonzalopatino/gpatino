@@ -4,7 +4,7 @@ import Button from '../components/Button'
 import Badge from '../components/Badge'
 import Card, { CardContent, CardFooter, CardHeader, CardTitle } from '../components/Card'
 import { GitHubIcon, LinkedInIcon, EmailIcon, DownloadIcon, ArrowRightIcon } from '../components/Icons'
-import { GridBackground, NeuralNetworkBg, CodeTerminal, AnimatedNeuralIcon, AnimatedServerIcon, AnimatedStackIcon, AnimatedDataIcon, AnimatedDevOpsIcon } from '../components/AIVisuals'
+import { GridBackground, NeuralNetworkBg, CodeTerminal, AnimatedNeuralIcon, AnimatedServerIcon, AnimatedStackIcon, AnimatedDataIcon, AnimatedDevOpsIcon, AnimatedEmbeddedIcon } from '../components/AIVisuals'
 import { siteConfig } from '../data/siteConfig'
 import { getFeaturedProjects } from '../data/projects'
 
@@ -156,6 +156,7 @@ export default function Home() {
                 'Full Stack Development': <AnimatedStackIcon className="w-10 h-10" />,
                 'Data Engineering': <AnimatedDataIcon className="w-10 h-10" />,
                 'DevOps & Platform': <AnimatedDevOpsIcon className="w-10 h-10" />,
+                'Embedded & IoT': <AnimatedEmbeddedIcon className="w-10 h-10" />,
               }
               
               return (
