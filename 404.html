@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // Redirect to index.html with the path as a hash route
+      // This handles direct navigation to routes on GitHub Pages
+      const basePath = '/gpatino';
+      let path = window.location.pathname;
+      
+      // Remove the base path from the URL to get the actual route
+      if (path.startsWith(basePath)) {
+        path = path.slice(basePath.length);
+      }
+      
+      const search = window.location.search;
+      window.location.replace(
+        window.location.origin + basePath + '/#' + path + search
+      );
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
