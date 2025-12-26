@@ -10,7 +10,7 @@ export const siteConfig = {
     linkedin: 'https://linkedin.com/in/gonzalopatino',
     portfolio: 'https://gonzalopatino.github.io/gpatino/',
     thinksenselabs: 'https://www.thinksenselabs.com',
-    resumeUrl: import.meta.env.BASE_URL + 'resume.pdf',
+    resumeUrl: 'https://gonzalopatino.github.io/gpatino/resume.pdf',
   },
 
   about: {
