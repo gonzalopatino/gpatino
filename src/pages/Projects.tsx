@@ -41,26 +41,37 @@ export default function Projects() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <Card key={project.slug} hover className="flex flex-col group" style={{ animationDelay: `${index * 150}ms` }}>
-                {/* Thumbnail Placeholder with AI styling */}
-                <div className="aspect-video bg-gradient-to-br from-dark-800 to-dark-900 rounded-lg mb-4 flex items-center justify-center border border-dark-700 relative overflow-hidden group-hover:border-cyan-500/50 transition-all duration-500">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.1)_0%,transparent_70%)]" />
-                  <div className="absolute inset-0 opacity-30">
-                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                      <defs>
-                        <pattern id={`grid-${project.slug}`} width="10" height="10" patternUnits="userSpaceOnUse">
-                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-cyan-500/20" />
-                        </pattern>
-                      </defs>
-                      <rect width="100" height="100" fill={`url(#grid-${project.slug})`} />
-                    </svg>
+                {/* Project Image */}
+                <div className="aspect-video rounded-lg mb-4 relative overflow-hidden group-hover:ring-2 group-hover:ring-cyan-500/50 transition-all duration-500">
+                  {/* Background with gradient fallback */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-850 to-dark-900" />
+                  
+                  {/* Project thumbnail image */}
+                  <img 
+                    src={project.thumbnail} 
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    onError={(e) => {
+                      // Hide image on error and show fallback
+                      e.currentTarget.style.display = 'none'
+                    }}
+                  />
+                  
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent" />
+                  
+                  {/* Category badge */}
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-2 py-1 rounded-md bg-dark-900/80 backdrop-blur-sm border border-dark-700 text-cyan-400 text-xs font-medium">
+                      {project.category}
+                    </span>
                   </div>
-                  <div className="relative z-10 flex flex-col items-center gap-2">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
+                  
+                  {/* View project indicator */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="px-4 py-2 rounded-lg bg-dark-900/90 backdrop-blur-sm border border-cyan-500/30 text-cyan-400 text-sm font-medium">
+                      View Case Study
                     </div>
-                    <span className="text-dark-400 text-sm font-medium">{project.category}</span>
                   </div>
                 </div>
 

@@ -3,7 +3,7 @@ import Card, { CardContent, CardHeader, CardTitle } from '../components/Card'
 import Badge from '../components/Badge'
 import { CheckIcon } from '../components/Icons'
 import { siteConfig } from '../data/siteConfig'
-import { CircuitPattern, FloatingParticles, NeuralNetworkBg, GridBackground } from '../components/AIVisuals'
+import { CircuitPattern, FloatingParticles, NeuralNetworkBg, GridBackground, AnimatedNeuralIcon, AnimatedEmbeddedIcon, AnimatedSystemsIcon, AnimatedCloudIcon, AnimatedDataIcon, AnimatedQualityIcon } from '../components/AIVisuals'
 
 // Animated process step component
 function ProcessStep({ 
@@ -212,7 +212,7 @@ export default function HowIWork() {
               The <span className="gradient-text">AI Development Process</span>
             </h2>
             <p className="text-dark-400 max-w-2xl mx-auto">
-              From problem framing to production monitoring — a systematic approach to building 
+              From problem framing to production monitoring: a systematic approach to building 
               ML systems that deliver real business value.
             </p>
           </div>
@@ -283,78 +283,91 @@ export default function HowIWork() {
               Core <span className="gradient-text">Technical Competencies</span>
             </h2>
             <p className="text-dark-400 max-w-2xl mx-auto">
-              Deep expertise across the full stack of AI/ML engineering — from embedded systems to cloud infrastructure.
+              Deep expertise across the full stack of AI/ML engineering, from embedded systems to cloud infrastructure.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: '🧠',
+                icon: 'ml',
                 title: 'Machine Learning',
                 items: ['PyTorch & TensorFlow', 'Model optimization', 'MLOps pipelines', 'Experiment tracking'],
                 color: 'from-purple-500/20 to-pink-500/20',
                 borderColor: 'border-purple-500/30'
               },
               {
-                icon: '⚡',
+                icon: 'embedded',
                 title: 'Embedded AI',
                 items: ['FreeRTOS', 'Edge ML (TensorFlow Lite)', 'Real-time systems', 'IoT protocols'],
                 color: 'from-amber-500/20 to-orange-500/20',
                 borderColor: 'border-amber-500/30'
               },
               {
-                icon: '🔌',
+                icon: 'systems',
                 title: 'Systems Programming',
                 items: ['C/C++ optimization', 'Memory management', 'Concurrent programming', 'Low-level debugging'],
                 color: 'from-emerald-500/20 to-teal-500/20',
                 borderColor: 'border-emerald-500/30'
               },
               {
-                icon: '☁️',
+                icon: 'cloud',
                 title: 'Cloud & Infrastructure',
                 items: ['AWS services', 'Docker & Kubernetes', 'Terraform IaC', 'CI/CD pipelines'],
                 color: 'from-blue-500/20 to-cyan-500/20',
                 borderColor: 'border-blue-500/30'
               },
               {
-                icon: '📊',
+                icon: 'data',
                 title: 'Data Engineering',
                 items: ['ETL pipelines', 'Data validation', 'Feature stores', 'SQL & NoSQL'],
                 color: 'from-indigo-500/20 to-violet-500/20',
                 borderColor: 'border-indigo-500/30'
               },
               {
-                icon: '🔒',
+                icon: 'quality',
                 title: 'Production Quality',
                 items: ['Test-driven development', 'Code review practices', 'Documentation', 'Monitoring & alerting'],
                 color: 'from-rose-500/20 to-red-500/20',
                 borderColor: 'border-rose-500/30'
               },
-            ].map((competency, idx) => (
-              <Card 
-                key={competency.title}
-                hover
-                className="animate-fade-in group"
-                style={{ animationDelay: `${idx * 0.1}s` } as React.CSSProperties}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${competency.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
-                <CardHeader className="relative z-10">
-                  <div className="text-3xl mb-3">{competency.icon}</div>
-                  <CardTitle className="text-white">{competency.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="relative z-10">
-                  <ul className="space-y-2">
-                    {competency.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-dark-300">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+            ].map((competency, idx) => {
+              const iconComponents: Record<string, React.ReactNode> = {
+                'ml': <AnimatedNeuralIcon className="w-10 h-10" />,
+                'embedded': <AnimatedEmbeddedIcon className="w-10 h-10" />,
+                'systems': <AnimatedSystemsIcon className="w-10 h-10" />,
+                'cloud': <AnimatedCloudIcon className="w-10 h-10" />,
+                'data': <AnimatedDataIcon className="w-10 h-10" />,
+                'quality': <AnimatedQualityIcon className="w-10 h-10" />,
+              }
+              
+              return (
+                <Card 
+                  key={competency.title}
+                  hover
+                  className="animate-fade-in group"
+                  style={{ animationDelay: `${idx * 0.1}s` } as React.CSSProperties}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${competency.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
+                  <CardHeader className="relative z-10">
+                    <div className="w-14 h-14 rounded-xl bg-dark-800/80 border border-dark-600/50 flex items-center justify-center mb-3 group-hover:border-primary-500/30 transition-all duration-300">
+                      {iconComponents[competency.icon]}
+                    </div>
+                    <CardTitle className="text-white">{competency.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <ul className="space-y-2">
+                      {competency.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-sm text-dark-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>

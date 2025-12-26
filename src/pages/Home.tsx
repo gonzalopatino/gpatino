@@ -4,7 +4,7 @@ import Button from '../components/Button'
 import Badge from '../components/Badge'
 import Card, { CardContent, CardFooter, CardHeader, CardTitle } from '../components/Card'
 import { GitHubIcon, LinkedInIcon, EmailIcon, DownloadIcon, ArrowRightIcon } from '../components/Icons'
-import { GridBackground, NeuralNetworkBg, CodeTerminal } from '../components/AIVisuals'
+import { GridBackground, NeuralNetworkBg, CodeTerminal, AnimatedNeuralIcon, AnimatedServerIcon, AnimatedStackIcon, AnimatedDataIcon, AnimatedDevOpsIcon } from '../components/AIVisuals'
 import { siteConfig } from '../data/siteConfig'
 import { getFeaturedProjects } from '../data/projects'
 
@@ -59,12 +59,8 @@ export default function Home() {
                 </span>
               </div>
               
-              <p className="text-lg sm:text-xl text-dark-300 mb-4 leading-relaxed max-w-xl">
+              <p className="text-lg sm:text-xl text-dark-300 mb-8 leading-relaxed max-w-xl">
                 {siteConfig.heroTagline}
-              </p>
-              
-              <p className="text-dark-400 mb-8 max-w-xl">
-                {siteConfig.about.education}
               </p>
 
               {/* Primary CTAs */}
@@ -125,11 +121,11 @@ export default function Home() {
                 title="gonzalo@portfolio ~ "
                 lines={[
                   { prefix: '$', text: 'whoami' },
-                  { text: 'Computer Scientist & AI Engineer', color: 'text-primary-400' },
+                  { text: 'AI Software Engineer & Computer Scientist', color: 'text-primary-400' },
                   { prefix: '$', text: 'cat skills.json' },
-                  { text: '{"core": ["Python", "C++", "TypeScript"]}', color: 'text-accent-cyan' },
+                  { text: '{"core": ["Python", "TypeScript", "C++"]}', color: 'text-accent-cyan' },
                   { prefix: '$', text: 'cat focus.txt' },
-                  { text: 'Embedded AI • ML Systems • Full Stack', color: 'text-dark-300' },
+                  { text: 'ML Systems • Scalable APIs • Full Stack', color: 'text-dark-300' },
                 ]}
               />
             </div>
@@ -147,34 +143,47 @@ export default function Home() {
               What I <span className="gradient-text">Build</span>
             </h2>
             <p className="text-dark-400 max-w-2xl mx-auto">
-              Specialized in systems where software meets hardware, and where AI meets production.
+              Building production systems from concept to deployment, with a focus on reliability and scale.
             </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {siteConfig.specialties.map((specialty, index) => (
-              <Card 
-                key={specialty.label} 
-                padding="lg" 
-                hover
-                className="animate-fade-in group"
-                style={{ animationDelay: `${index * 0.1}s` } as React.CSSProperties}
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-cyan/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <div className="w-3 h-3 rounded-full bg-gradient-to-br from-primary-400 to-accent-cyan" />
-                </div>
-                <CardHeader className="mb-2">
-                  <CardTitle as="h3" className="text-lg">
-                    {specialty.label}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-dark-400">
-                    {specialty.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+            {siteConfig.specialties.map((specialty, index) => {
+              // Map specialty to animated icons
+              const AnimatedIcons: Record<string, React.ReactNode> = {
+                'AI/ML Integration': <AnimatedNeuralIcon className="w-10 h-10" />,
+                'Backend Systems': <AnimatedServerIcon className="w-10 h-10" />,
+                'Full Stack Development': <AnimatedStackIcon className="w-10 h-10" />,
+                'Data Engineering': <AnimatedDataIcon className="w-10 h-10" />,
+                'DevOps & Platform': <AnimatedDevOpsIcon className="w-10 h-10" />,
+              }
+              
+              return (
+                <Card 
+                  key={specialty.label} 
+                  padding="lg" 
+                  hover
+                  className="animate-fade-in group"
+                  style={{ animationDelay: `${index * 0.1}s` } as React.CSSProperties}
+                >
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-cyan/20 border border-primary-500/30 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-primary-400/50 group-hover:shadow-glow transition-all duration-300">
+                    {AnimatedIcons[specialty.label] || (
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-br from-primary-400 to-accent-cyan" />
+                    )}
+                  </div>
+                  <CardHeader className="mb-2">
+                    <CardTitle as="h3" className="text-lg text-white">
+                      {specialty.label}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-dark-400">
+                      {specialty.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -205,27 +214,33 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Toolbox */}
-          <div className="glass-card p-8">
-            <h3 className="text-xl font-semibold text-white mb-8 text-center">
-              Technical Toolbox
+          {/* Toolbox - Redesigned */}
+          <div className="glass-card p-8 rounded-2xl">
+            <h3 className="text-2xl font-bold text-white mb-2 text-center">
+              Technical <span className="gradient-text">Toolbox</span>
             </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p className="text-dark-400 text-center mb-8 text-sm">
+              Technologies I use to build production systems
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {siteConfig.toolbox.map((category, index) => (
                 <div 
                   key={category.category}
-                  className="animate-fade-in"
+                  className="bg-dark-800/50 rounded-xl p-4 border border-dark-700/50 hover:border-primary-500/30 transition-all duration-300 group"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <h4 className="text-sm font-medium text-primary-400 mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+                  <h4 className="text-xs font-semibold text-primary-400 mb-3 uppercase tracking-wider">
                     {category.category}
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="space-y-1.5">
                     {category.tools.map((tool) => (
-                      <span key={tool} className="tech-chip">
+                      <div 
+                        key={tool} 
+                        className="text-sm text-dark-300 hover:text-white transition-colors flex items-center gap-2"
+                      >
+                        <span className="w-1 h-1 rounded-full bg-primary-500/50" />
                         {tool}
-                      </span>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -268,15 +283,27 @@ export default function Home() {
                   className="h-full flex flex-col animate-fade-in overflow-hidden"
                   style={{ animationDelay: `${index * 0.15}s` } as React.CSSProperties}
                 >
-                  {/* Project Visual */}
-                  <div className="aspect-video bg-gradient-to-br from-dark-800 to-dark-900 rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 grid-bg opacity-50" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent" />
-                    <div className="relative z-10 text-center p-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/20 to-accent-cyan/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                        <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary-400 to-accent-cyan" />
+                  {/* Project Visual with Image */}
+                  <div className="aspect-video rounded-xl mb-6 relative overflow-hidden group-hover:ring-2 group-hover:ring-primary-500/50 transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-850 to-dark-900" />
+                    <img 
+                      src={project.thumbnail} 
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="px-2 py-1 rounded-md bg-dark-900/80 backdrop-blur-sm border border-dark-700 text-primary-400 text-xs font-medium">
+                        {project.category}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="px-4 py-2 rounded-lg bg-dark-900/90 backdrop-blur-sm border border-primary-500/30 text-primary-400 text-sm font-medium">
+                        View Case Study
                       </div>
-                      <p className="text-dark-400 text-sm">View Case Study</p>
                     </div>
                   </div>
 

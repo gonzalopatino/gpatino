@@ -69,6 +69,9 @@ export default {
         'neural-pulse': 'neuralPulse 2s ease-in-out infinite',
         'data-flow': 'dataFlow 3s linear infinite',
         'circuit-trace': 'circuitTrace 2s ease-in-out infinite',
+        'width-pulse': 'widthPulse 2s ease-in-out infinite',
+        'dash': 'dash 20s linear infinite',
+        'draw': 'draw 1s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -126,6 +129,18 @@ export default {
         circuitTrace: {
           '0%': { strokeDashoffset: '1000' },
           '100%': { strokeDashoffset: '0' },
+        },
+        widthPulse: {
+          '0%, 100%': { width: '30%' },
+          '50%': { width: '90%' },
+        },
+        dash: {
+          '0%': { strokeDashoffset: '0' },
+          '100%': { strokeDashoffset: '100' },
+        },
+        draw: {
+          '0%': { strokeDashoffset: '100', opacity: '0' },
+          '100%': { strokeDashoffset: '0', opacity: '1' },
         },
       },
       backgroundImage: {

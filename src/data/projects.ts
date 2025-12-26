@@ -76,10 +76,10 @@ export const projects: Project[] = [
       'Secure TLS communication',
     ],
     links: [
-      { label: 'GitHub Repo', url: 'https://github.com/gonzalopatino/ESP32_FreeRTOS_Thermostat_Server', type: 'repo' },
-      { label: 'Documentation', url: 'https://github.com/gonzalopatino/ESP32_FreeRTOS_Thermostat_Server/blob/master/docs/SOFTWARE_DESIGN_DOCUMENT.md', type: 'readme' },
+      { label: 'GitHub Repo', url: 'https://github.com/gonzalopatino/IoT_thermoStat_ecosystem/', type: 'repo' },
+      { label: 'Live Demo', url: 'https://gonzalopatino.github.io/IoT_thermoStat_ecosystem/', type: 'demo' },
     ],
-    thumbnail: '/images/projects/thermostat-thumb.png',
+    thumbnail: '/images/projects/thermostat-system.svg',
     featured: true,
     caseStudy: {
       overview: {
@@ -190,10 +190,9 @@ export const projects: Project[] = [
       'Immersive VR control',
     ],
     links: [
-      { label: 'GitHub Repo', url: 'https://github.com/gonzalopatino', type: 'repo' },
-      { label: 'Project Writeup', url: 'https://www.thinksenselabs.com', type: 'writeup' },
+      { label: 'GitHub Repo', url: 'https://github.com/gonzalopatino/RFDrone_FreeRTOS_Smart_EcoSystem_Machine_Learning_VR', type: 'repo' },
     ],
-    thumbnail: '/images/projects/drone-vr-thumb.png',
+    thumbnail: '/images/projects/drone-ml-system.svg',
     featured: true,
     caseStudy: {
       overview: {

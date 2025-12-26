@@ -1,43 +1,43 @@
 export const siteConfig = {
   name: 'Gonzalo Patino',
-  role: 'Computer Scientist & AI Software Engineer',
-  tagline: 'Building intelligent systems that scale — from embedded ML to production AI',
+  role: 'AI Software Engineer & Computer Scientist',
+  tagline: 'Building intelligent software systems that scale',
   email: 'gpatinoc92@gmail.com',
-  heroTagline: 'I architect and build intelligent software systems — from embedded ML on microcontrollers to production AI platforms. I bridge the gap between cutting-edge research and reliable, scalable deployment.',
+  heroTagline: 'I build software products and AI features for real users, from problem framing and system design to implementation and deployment. I prioritize software that scales and stays secure and dependable after launch.',
   
   social: {
     github: 'https://github.com/gonzalopatino',
     linkedin: 'https://linkedin.com/in/gonzalopatino',
     portfolio: 'https://gonzalopatino.github.io/gpatino/',
     thinksenselabs: 'https://www.thinksenselabs.com',
-    resumeUrl: '/resume.pdf', // Place in public folder
+    resumeUrl: '/resume.pdf',
   },
 
   about: {
-    summary: "Computer Scientist and AI Software Engineer with expertise in systems programming, machine learning integration, and embedded systems. I specialize in building production AI systems that are reliable, efficient, and maintainable.",
-    education: "Starting April 2026, I begin an M.S. in Computer Science (Artificial Intelligence concentration), focused on practical ML integration for production software systems.",
-    approach: "I apply rigorous software engineering principles to AI/ML development: reproducible experiments, comprehensive testing, continuous integration, and observability-first design. I believe the best AI systems are built on solid engineering foundations.",
+    summary: "AI Software Engineer and Computer Scientist with expertise in building production-grade software systems. I specialize in creating scalable applications, machine learning integration, and full-stack development for products used by real users.",
+    approach: "I apply rigorous software engineering principles to AI development: reproducible experiments, comprehensive testing, continuous integration, and observability-first design. I believe the best AI systems are built on solid engineering foundations.",
   },
 
   specialties: [
-    { label: 'Applied AI Products', description: 'LLMs, RAG fundamentals, and automation workflows' },
-    { label: 'Full Stack Development', description: 'Web applications and API design' },
-    { label: 'Data Pipelines', description: 'Analytics and practical evaluation thinking' },
-    { label: 'Embedded Systems', description: 'FreeRTOS, real-time control, IoT ecosystems' },
-    { label: 'DevOps & Testing', description: 'CI/CD, containerized deployments, root-cause analysis' },
+    { label: 'AI/ML Integration', description: 'LLMs, RAG systems, model deployment, and intelligent automation' },
+    { label: 'Backend Systems', description: 'Scalable APIs, microservices, and distributed architectures' },
+    { label: 'Full Stack Development', description: 'React, Node.js, databases, and cloud infrastructure' },
+    { label: 'Data Engineering', description: 'ETL pipelines, analytics, and real-time data processing' },
+    { label: 'DevOps & Platform', description: 'CI/CD, containerization, monitoring, and infrastructure as code' },
   ],
 
   trustSignals: [
-    'Built production embedded systems with FreeRTOS for real-time IoT control',
-    'Designed multi-device ecosystems with secure MQTT communication and cloud integration',
-    'Developed ML-integrated drone control systems with VR interfaces',
+    'Built scalable backend systems handling high-throughput data processing',
+    'Deployed ML models to production with monitoring and A/B testing',
+    'Designed end-to-end IoT ecosystems with cloud integration and real-time control',
   ],
 
   toolbox: [
-    { category: 'Languages', tools: ['Python', 'C/C++', 'TypeScript', 'SQL'] },
-    { category: 'Embedded', tools: ['FreeRTOS', 'ESP-IDF', 'Arduino', 'STM32'] },
-    { category: 'ML/AI', tools: ['PyTorch', 'TensorFlow', 'LangChain', 'OpenCV'] },
-    { category: 'Web', tools: ['React', 'Node.js', 'FastAPI', 'PostgreSQL'] },
-    { category: 'Infra', tools: ['Docker', 'AWS', 'MQTT', 'Git', 'GitHub Actions'] },
+    { category: 'Languages', tools: ['Python', 'TypeScript', 'C/C++', 'SQL', 'Go'] },
+    { category: 'AI/ML', tools: ['PyTorch', 'TensorFlow', 'LangChain', 'Hugging Face', 'scikit-learn'] },
+    { category: 'Backend', tools: ['FastAPI', 'Node.js', 'PostgreSQL', 'Redis', 'GraphQL'] },
+    { category: 'Frontend', tools: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'] },
+    { category: 'Cloud & DevOps', tools: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions'] },
+    { category: 'Data', tools: ['Apache Kafka', 'Spark', 'Airflow', 'dbt', 'Pandas'] },
   ],
 }
