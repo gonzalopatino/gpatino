@@ -176,26 +176,31 @@ function TechIcon({ name }: { name: string }) {
 
 export default function About() {
   const skills = {
-    ai: [
-      { name: 'Python / PyTorch', level: 95 },
-      { name: 'TensorFlow / Keras', level: 88 },
-      { name: 'LLMs / Transformers', level: 92 },
-      { name: 'Computer Vision', level: 85 },
-      { name: 'MLOps', level: 82 },
+    languages: [
+      { name: 'Python', level: 90 },
+      { name: 'TypeScript / JavaScript', level: 88 },
+      { name: 'C / C++', level: 80 },
+      { name: 'SQL / PostgreSQL', level: 80 },
     ],
-    software: [
-      { name: 'TypeScript / JavaScript', level: 90 },
-      { name: 'React / Next.js', level: 88 },
-      { name: 'Node.js / Express', level: 85 },
-      { name: 'PostgreSQL / MongoDB', level: 82 },
-      { name: 'Docker / Kubernetes', level: 78 },
+    frameworks: [
+      { name: 'React / Angular', level: 85 },
+      { name: 'Node.js / Express', level: 82 },
+      { name: 'Django / DRF', level: 80 },
+      { name: 'MEAN Stack', level: 78 },
     ],
-    embedded: [
-      { name: 'C / C++', level: 85 },
-      { name: 'ESP32 / Arduino', level: 88 },
-      { name: 'FreeRTOS', level: 80 },
-      { name: 'STM32 / ARM', level: 75 },
-      { name: 'IoT Protocols', level: 82 },
+    devtools: [
+      { name: 'Git / Version Control', level: 88 },
+      { name: 'Docker', level: 78 },
+      { name: 'REST APIs', level: 85 },
+      { name: 'Testing / Debugging', level: 80 },
+      { name: 'Linux / CLI', level: 78 },
+    ],
+    other: [
+      { name: 'ESP32 / Arduino', level: 75 },
+      { name: 'RTOS (FreeRTOS)', level: 72 },
+      { name: 'MQTT Concepts', level: 70 },
+      { name: 'LLM Integration', level: 72 },
+      { name: 'Data Workflows', level: 75 },
     ],
   }
 
@@ -240,24 +245,14 @@ export default function About() {
 
   const journey = [
     {
-      year: '2024',
-      title: 'AI Software Engineer',
-      description: 'Specializing in LLM applications, MLOps, and production ML systems.',
+      year: '2025',
+      title: 'Software Engineering',
+      description: 'Building end-to-end software systems, focusing on systems design, APIs, data workflows, and maintainable architecture.',
     },
     {
-      year: '2022',
-      title: 'Full Stack Development',
-      description: 'Building scalable web applications with modern frameworks and cloud infrastructure.',
-    },
-    {
-      year: '2020',
-      title: 'Embedded Systems',
-      description: 'Developing IoT solutions and edge computing applications with real-time constraints.',
-    },
-    {
-      year: '2018',
-      title: 'Computer Science Foundation',
-      description: 'Strong foundation in algorithms, data structures, and software engineering principles.',
+      year: '2016-2024',
+      title: 'Engineering Foundations',
+      description: 'Built strong engineering fundamentals through electronics and embedded work, including hardware-software integration, validation, and disciplined troubleshooting.',
     },
   ]
 
@@ -297,28 +292,6 @@ export default function About() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             {siteConfig.about.summary}
           </p>
-
-          {/* Quick stats */}
-          <div className="flex justify-center gap-8 mt-10">
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                5+
-              </div>
-              <div className="text-sm text-gray-500">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                20+
-              </div>
-              <div className="text-sm text-gray-500">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                3
-              </div>
-              <div className="text-sm text-gray-500">Specializations</div>
-            </div>
-          </div>
         </div>
 
         {/* Values Section */}
@@ -345,23 +318,8 @@ export default function About() {
         {/* Skills Section */}
         <div className="mb-20">
           <h2 className="text-2xl font-bold text-white text-center mb-10">Technical Expertise</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* AI/ML Skills */}
-            <div className="p-6 bg-dark-900/50 rounded-2xl border border-gray-800">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white">AI & Machine Learning</h3>
-              </div>
-              {skills.ai.map((skill) => (
-                <SkillBar key={skill.name} skill={skill.name} level={skill.level} color="bg-gradient-to-r from-purple-500 to-pink-500" />
-              ))}
-            </div>
-
-            {/* Software Skills */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Languages */}
             <div className="p-6 bg-dark-900/50 rounded-2xl border border-gray-800">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-cyan-500/20 rounded-lg">
@@ -369,14 +327,44 @@ export default function About() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white">Software Engineering</h3>
+                <h3 className="text-lg font-semibold text-white">Languages</h3>
               </div>
-              {skills.software.map((skill) => (
+              {skills.languages.map((skill) => (
                 <SkillBar key={skill.name} skill={skill.name} level={skill.level} color="bg-gradient-to-r from-cyan-500 to-blue-500" />
               ))}
             </div>
 
-            {/* Embedded Skills */}
+            {/* Frameworks */}
+            <div className="p-6 bg-dark-900/50 rounded-2xl border border-gray-800">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-indigo-500/20 rounded-lg">
+                  <svg className="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white">Frameworks</h3>
+              </div>
+              {skills.frameworks.map((skill) => (
+                <SkillBar key={skill.name} skill={skill.name} level={skill.level} color="bg-gradient-to-r from-indigo-500 to-purple-500" />
+              ))}
+            </div>
+
+            {/* Dev Tools Skills */}
+            <div className="p-6 bg-dark-900/50 rounded-2xl border border-gray-800">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-purple-500/20 rounded-lg">
+                  <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white">Development Tools</h3>
+              </div>
+              {skills.devtools.map((skill) => (
+                <SkillBar key={skill.name} skill={skill.name} level={skill.level} color="bg-gradient-to-r from-purple-500 to-pink-500" />
+              ))}
+            </div>
+
+            {/* Other Skills */}
             <div className="p-6 bg-dark-900/50 rounded-2xl border border-gray-800">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-green-500/20 rounded-lg">
@@ -388,9 +376,9 @@ export default function About() {
                     <circle cx="15" cy="15" r="1" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white">Embedded & IoT</h3>
+                <h3 className="text-lg font-semibold text-white">Other Skills</h3>
               </div>
-              {skills.embedded.map((skill) => (
+              {skills.other.map((skill) => (
                 <SkillBar key={skill.name} skill={skill.name} level={skill.level} color="bg-gradient-to-r from-green-500 to-teal-500" />
               ))}
             </div>
@@ -439,9 +427,9 @@ export default function About() {
         {/* CTA Section */}
         <div className="p-10 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 
                       rounded-2xl border border-cyan-500/20 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Let's Build Something Amazing</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Let's Build Something Together</h2>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Whether you need an AI solution, a full-stack application, or an embedded systems project, 
+            Whether you need a full-stack application, backend services, or help integrating AI into your product, 
             I'm here to help bring your ideas to life.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">

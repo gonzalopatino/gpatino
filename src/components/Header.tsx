@@ -177,7 +177,7 @@ export default function Header() {
                 Gonzalo Patino
               </span>
               <span className="text-xs text-dark-400 group-hover:text-dark-300 transition-colors">
-                AI Software Engineer
+                Software Engineer
               </span>
             </div>
           </Link>

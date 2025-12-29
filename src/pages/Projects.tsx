@@ -29,7 +29,7 @@ export default function Projects() {
             </span>
           </h1>
           <p className="text-xl text-dark-300 max-w-2xl">
-            A selection of production systems I've built. Each project includes
+            A selection of systems I've built. Each project includes
             a detailed case study covering architecture, challenges, and results.
           </p>
         </div>

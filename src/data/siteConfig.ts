@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: 'Gonzalo Patino',
-  role: 'AI Software Engineer & Computer Scientist',
-  tagline: 'Building intelligent software systems that scale',
+  role: 'Software Engineer & Computer Scientist',
+  tagline: 'Building software systems that solve real problems',
   email: 'gpatinoc92@gmail.com',
-  location: 'United States',
-  heroTagline: 'I build software products and AI features for real users, from problem framing and system design to implementation and deployment. I prioritize software that scales and stays secure and dependable after launch.',
+  location: 'Canada, United States',
+  heroTagline: 'I build end-to-end software systems from system design through deployment. I focus on clean architecture, reliable APIs, data workflows, and automation that improves quality and supportability. I integrate AI capabilities when they add clear value inside product workflows.',
   
   social: {
     github: 'https://github.com/gonzalopatino',
@@ -15,32 +15,49 @@ export const siteConfig = {
   },
 
   about: {
-    summary: "AI Software Engineer and Computer Scientist with expertise in building production-grade software systems. I specialize in creating scalable applications, machine learning integration, and full-stack development for products used by real users.",
-    approach: "I apply rigorous software engineering principles to AI development: reproducible experiments, comprehensive testing, continuous integration, and observability-first design. I believe the best AI systems are built on solid engineering foundations.",
+    summary: "Software Engineer with a Computer Science and Electronics Engineering background. I build maintainable and well-structured systems, with strengths in systems design, API development, data workflows, and debugging.",
+    approach: "I favor clear requirements, clean architecture, and test discipline. I use root-cause analysis to improve reliability and reduce repeat issues. When AI adds measurable value, I integrate it thoughtfully into existing product workflows.",
   },
 
-  specialties: [
-    { label: 'AI/ML Integration', description: 'LLMs, RAG systems, model deployment, and intelligent automation' },
-    { label: 'Backend Systems', description: 'Scalable APIs, microservices, and distributed architectures' },
-    { label: 'Full Stack Development', description: 'React, Node.js, databases, and cloud infrastructure' },
-    { label: 'Data Engineering', description: 'ETL pipelines, analytics, and real-time data processing' },
-    { label: 'DevOps & Platform', description: 'CI/CD, containerization, monitoring, and infrastructure as code' },
-    { label: 'Embedded & IoT', description: 'FreeRTOS, ESP32, STM32, Raspberry Pi, and connected device ecosystems' },
+ specialties: [
+    {
+      label: 'Systems Design',
+      description: 'Scope definition, architecture, tradeoffs, and maintainable component boundaries',
+    },
+    {
+      label: 'API Development',
+      description: 'REST APIs, authentication, validation, and well-structured backend services',
+    },
+    {
+      label: 'Data Workflows',
+      description: 'SQL, persistence models, ingestion patterns, and reporting-oriented pipelines',
+    },
+    {
+      label: 'Automation',
+      description: 'Scripts and tooling that reduce manual effort and improve release and support workflows',
+    },
+    {
+      label: 'AI Integration',
+      description: 'LLM-assisted features and automation when they improve outcomes and can be supported',
+    },
+    {
+      label: 'Connected Systems',
+      description: 'Device-to-cloud thinking, telemetry concepts, and hardware-software integration context',
+    },
   ],
 
   trustSignals: [
-    'Built scalable backend systems handling high-throughput data processing',
-    'Deployed ML models to production with monitoring and A/B testing',
-    'Designed end-to-end IoT ecosystems with cloud integration and real-time control',
+    'Built internal software tooling to ingest, process, and visualize telemetry and operational data',
+    'Designed and implemented API-driven applications with authentication and data persistence',
+    'Applied test discipline and root-cause analysis to improve reliability and reduce repeat issues',
   ],
 
   toolbox: [
-    { category: 'Languages', tools: ['Python', 'TypeScript', 'C/C++', 'SQL', 'Go'] },
-    { category: 'AI/ML', tools: ['PyTorch', 'TensorFlow', 'LangChain', 'Hugging Face', 'scikit-learn'] },
-    { category: 'Backend', tools: ['FastAPI', 'Node.js', 'PostgreSQL', 'Redis', 'GraphQL'] },
-    { category: 'Frontend', tools: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'] },
-    { category: 'Cloud & DevOps', tools: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions'] },
-    { category: 'Data', tools: ['Apache Kafka', 'Spark', 'Airflow', 'dbt', 'Pandas'] },
-    { category: 'Embedded', tools: ['FreeRTOS', 'ESP-IDF', 'STM32 HAL', 'MQTT', 'Raspberry Pi'] },
+    { category: 'Languages', tools: ['Python', 'TypeScript', 'SQL', 'C/C++'] },
+    { category: 'Backend', tools: ['Django', 'Django REST Framework', 'Node.js', 'PostgreSQL'] },
+    { category: 'Frontend', tools: ['React', 'Angular', 'HTML/CSS'] },
+    { category: 'Dev Tools', tools: ['Git', 'Docker', 'Postman'] },
+    { category: 'AI Integration', tools: ['LLMs', 'Prompting', 'RAG fundamentals'] },
+    { category: 'Connected Systems', tools: ['MQTT concepts', 'Raspberry Pi', 'ESP32 concepts'] },
   ],
 }

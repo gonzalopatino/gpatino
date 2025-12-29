@@ -49,7 +49,7 @@ function ProcessStep({
   )
 }
 
-// ML Pipeline visualization
+// Development pipeline visualization
 function MLPipelineVisual() {
   return (
     <div className="relative p-6 bg-dark-900/50 rounded-2xl border border-dark-700/50 overflow-hidden">
@@ -59,11 +59,11 @@ function MLPipelineVisual() {
       
       <div className="relative z-10">
         <h4 className="text-sm font-semibold text-primary-400 uppercase tracking-wide mb-6">
-          ML Development Lifecycle
+          Software Development Lifecycle
         </h4>
         
         <div className="flex flex-wrap items-center justify-center gap-3">
-          {['Problem Definition', 'Data Collection', 'Feature Engineering', 'Model Training', 'Evaluation', 'Deployment', 'Monitoring'].map((stage, idx) => (
+          {['Requirements', 'Design', 'Implementation', 'Testing', 'Deployment', 'Monitoring'].map((stage, idx) => (
             <div key={stage} className="flex items-center">
               <div className="relative group">
                 <div className="px-4 py-2 rounded-lg bg-dark-800 border border-dark-700 group-hover:border-primary-500/50 transition-all duration-300">
@@ -73,7 +73,7 @@ function MLPipelineVisual() {
                   {idx + 1}
                 </div>
               </div>
-              {idx < 6 && (
+              {idx < 5 && (
                 <svg className="w-6 h-6 text-dark-600 mx-1 flex-shrink-0" viewBox="0 0 24 24" fill="none">
                   <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -96,62 +96,62 @@ export default function HowIWork() {
   const aiProcesses = [
     {
       number: '01',
-      title: 'Problem Framing & Feasibility',
-      description: 'Define clear success metrics, assess data availability, and validate ML is the right approach',
+      title: 'Requirements & Planning',
+      description: 'Define clear goals, scope the problem, and establish success criteria',
       details: [
-        'Stakeholder interviews to understand business goals',
-        'Data audit and availability assessment',
-        'Baseline performance benchmarking',
-        'Build vs buy analysis',
-        'Define offline and online metrics alignment',
+        'Stakeholder interviews to understand goals',
+        'Scope definition and constraint mapping',
+        'Architecture and design decisions',
+        'Technology selection and tradeoffs',
+        'Define acceptance criteria upfront',
       ]
     },
     {
       number: '02',
-      title: 'Data Engineering & Exploration',
-      description: 'Build robust data pipelines and perform thorough exploratory analysis',
+      title: 'Design & Data Modeling',
+      description: 'Structure the system and data for maintainability and performance',
       details: [
-        'Data quality profiling and anomaly detection',
-        'Feature engineering and selection',
-        'Train/validation/test split strategy',
-        'Data versioning with DVC or similar',
-        'Bias and fairness auditing',
+        'Database schema design',
+        'API contract definition',
+        'Component architecture',
+        'Security and access patterns',
+        'Integration points and dependencies',
       ]
     },
     {
       number: '03',
-      title: 'Experimentation & Model Development',
-      description: 'Systematic experimentation with rigorous tracking and reproducibility',
+      title: 'Implementation & Testing',
+      description: 'Build incrementally with test coverage and code review discipline',
       details: [
-        'Experiment tracking (MLflow, W&B)',
-        'Hyperparameter optimization',
-        'Cross-validation strategies',
-        'Model interpretability analysis',
-        'A/B testing design',
+        'Incremental development with version control',
+        'Unit and integration testing',
+        'Code review and documentation',
+        'Debugging and root-cause analysis',
+        'Refactoring for clarity',
       ]
     },
     {
       number: '04',
-      title: 'Production Engineering',
-      description: 'Deploy models as reliable, scalable services with proper observability',
+      title: 'Deployment & Delivery',
+      description: 'Package and deploy reliably with proper configuration management',
       details: [
-        'Model packaging (Docker, ONNX)',
-        'API design and rate limiting',
-        'Latency optimization and batching',
-        'Canary deployments and rollback',
-        'Infrastructure as Code (Terraform)',
+        'Environment configuration',
+        'Deployment scripting (Docker)',
+        'Database migrations',
+        'Smoke testing and validation',
+        'Rollback planning',
       ]
     },
     {
       number: '05',
-      title: 'Monitoring & Continuous Improvement',
-      description: 'Detect drift, measure real-world performance, and close the feedback loop',
+      title: 'Monitoring & Iteration',
+      description: 'Observe production behavior, fix issues, and improve over time',
       details: [
-        'Data drift and model drift detection',
-        'Performance dashboards (Grafana)',
-        'Alerting on SLA violations',
-        'Feedback loop integration',
-        'Retraining pipelines',
+        'Logging and error tracking',
+        'Performance monitoring',
+        'User feedback integration',
+        'Bug triage and prioritization',
+        'Continuous improvement',
       ]
     },
   ]
@@ -173,25 +173,25 @@ export default function HowIWork() {
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            AI/ML Engineering Methodology
+            Software Engineering Methodology
           </div>
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">How I Build </span>
             <span className="bg-gradient-to-r from-primary-400 via-accent-cyan to-primary-500 bg-clip-text text-transparent">
-              Intelligent Systems
+              Software Systems
             </span>
           </h1>
           
           <p className="text-xl text-dark-300 max-w-3xl mb-8 leading-relaxed">
-            My approach to AI/ML engineering combines rigorous software engineering practices with 
-            modern ML Ops. I believe great AI products are built on solid foundations: reproducible 
-            experiments, comprehensive testing, and observability-first design.
+            My approach to software engineering combines clean architecture with practical delivery. 
+            I believe great products are built on solid foundations: clear requirements, 
+            comprehensive testing, and maintainable code.
           </p>
 
           {/* Key principles badges */}
           <div className="flex flex-wrap gap-3">
-            {['Reproducibility', 'Testing-First', 'Production-Ready', 'Observable', 'Iterative'].map((principle, i) => (
+            {['Clean Architecture', 'Test Discipline', 'Clear Requirements', 'Maintainable Code', 'Iterative'].map((principle, i) => (
               <span 
                 key={principle}
                 className="px-4 py-2 rounded-full bg-dark-800/50 border border-dark-700 text-dark-300 text-sm animate-fade-in"
@@ -209,11 +209,11 @@ export default function HowIWork() {
         <div className="container-narrow">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              The <span className="gradient-text">AI Development Process</span>
+              The <span className="gradient-text">Development Process</span>
             </h2>
             <p className="text-dark-400 max-w-2xl mx-auto">
-              From problem framing to production monitoring: a systematic approach to building 
-              ML systems that deliver real business value.
+              From requirements to production: a systematic approach to building 
+              software systems that deliver real value.
             </p>
           </div>
 
@@ -283,51 +283,51 @@ export default function HowIWork() {
               Core <span className="gradient-text">Technical Competencies</span>
             </h2>
             <p className="text-dark-400 max-w-2xl mx-auto">
-              Deep expertise across the full stack of AI/ML engineering, from embedded systems to cloud infrastructure.
+              Solid skills across the software development stack, from backend systems to frontend interfaces.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
+                icon: 'systems',
+                title: 'Backend Development',
+                items: ['Python & Django', 'REST APIs', 'PostgreSQL', 'Authentication & security'],
+                color: 'from-cyan-500/20 to-blue-500/20',
+                borderColor: 'border-cyan-500/30'
+              },
+              {
                 icon: 'ml',
-                title: 'Machine Learning',
-                items: ['PyTorch & TensorFlow', 'Model optimization', 'MLOps pipelines', 'Experiment tracking'],
+                title: 'Frontend Development',
+                items: ['React & Angular', 'TypeScript', 'HTML/CSS', 'Responsive design'],
                 color: 'from-purple-500/20 to-pink-500/20',
                 borderColor: 'border-purple-500/30'
               },
               {
-                icon: 'embedded',
-                title: 'Embedded AI',
-                items: ['FreeRTOS', 'Edge ML (TensorFlow Lite)', 'Real-time systems', 'IoT protocols'],
-                color: 'from-amber-500/20 to-orange-500/20',
-                borderColor: 'border-amber-500/30'
-              },
-              {
-                icon: 'systems',
-                title: 'Systems Programming',
-                items: ['C/C++ optimization', 'Memory management', 'Concurrent programming', 'Low-level debugging'],
-                color: 'from-emerald-500/20 to-teal-500/20',
-                borderColor: 'border-emerald-500/30'
-              },
-              {
-                icon: 'cloud',
-                title: 'Cloud & Infrastructure',
-                items: ['AWS services', 'Docker & Kubernetes', 'Terraform IaC', 'CI/CD pipelines'],
-                color: 'from-blue-500/20 to-cyan-500/20',
-                borderColor: 'border-blue-500/30'
-              },
-              {
                 icon: 'data',
-                title: 'Data Engineering',
-                items: ['ETL pipelines', 'Data validation', 'Feature stores', 'SQL & NoSQL'],
+                title: 'Data & Databases',
+                items: ['SQL & PostgreSQL', 'Data modeling', 'Query optimization', 'Reporting pipelines'],
                 color: 'from-indigo-500/20 to-violet-500/20',
                 borderColor: 'border-indigo-500/30'
               },
               {
+                icon: 'cloud',
+                title: 'DevOps Basics',
+                items: ['Git & version control', 'Docker', 'CI/CD concepts', 'Linux command line'],
+                color: 'from-blue-500/20 to-cyan-500/20',
+                borderColor: 'border-blue-500/30'
+              },
+              {
+                icon: 'embedded',
+                title: 'Connected Systems',
+                items: ['C/C++ basics', 'ESP32 & Arduino', 'MQTT concepts', 'Hardware-software integration'],
+                color: 'from-amber-500/20 to-orange-500/20',
+                borderColor: 'border-amber-500/30'
+              },
+              {
                 icon: 'quality',
-                title: 'Production Quality',
-                items: ['Test-driven development', 'Code review practices', 'Documentation', 'Monitoring & alerting'],
+                title: 'Quality & Process',
+                items: ['Test discipline', 'Code review', 'Documentation', 'Root-cause analysis'],
                 color: 'from-rose-500/20 to-red-500/20',
                 borderColor: 'border-rose-500/30'
               },
@@ -426,11 +426,11 @@ export default function HowIWork() {
 
               <div className="space-y-3">
                 {[
-                  { stage: 'Lint & Format', tools: ['ruff', 'black', 'prettier'], icon: '📝' },
-                  { stage: 'Type Check', tools: ['mypy', 'pyright', 'tsc'], icon: '🔍' },
-                  { stage: 'Test Suite', tools: ['pytest', 'vitest'], icon: '🧪' },
-                  { stage: 'Security Scan', tools: ['bandit', 'trivy'], icon: '🔐' },
-                  { stage: 'Build & Deploy', tools: ['Docker', 'GitHub Actions'], icon: '🚀' },
+                  { stage: 'Lint & Format', tools: ['ESLint', 'Prettier', 'Black'], icon: '📝' },
+                  { stage: 'Type Check', tools: ['TypeScript', 'Pyright'], icon: '🔍' },
+                  { stage: 'Test Suite', tools: ['pytest', 'Jest'], icon: '🧪' },
+                  { stage: 'Build', tools: ['Vite', 'Docker'], icon: '📦' },
+                  { stage: 'Deploy', tools: ['GitHub Actions'], icon: '🚀' },
                 ].map((stage, idx) => (
                   <div 
                     key={stage.stage}
@@ -475,15 +475,15 @@ export default function HowIWork() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {[
                 { name: 'Python', category: 'Language' },
-                { name: 'C/C++', category: 'Language' },
                 { name: 'TypeScript', category: 'Language' },
-                { name: 'PyTorch', category: 'ML' },
-                { name: 'TensorFlow', category: 'ML' },
-                { name: 'MLflow', category: 'MLOps' },
-                { name: 'Docker', category: 'Infra' },
-                { name: 'AWS', category: 'Cloud' },
-                { name: 'FreeRTOS', category: 'Embedded' },
+                { name: 'C/C++', category: 'Language' },
+                { name: 'SQL', category: 'Data' },
+                { name: 'React', category: 'Frontend' },
+                { name: 'Django', category: 'Backend' },
+                { name: 'Node.js', category: 'Backend' },
                 { name: 'PostgreSQL', category: 'Data' },
+                { name: 'Docker', category: 'DevOps' },
+                { name: 'Git', category: 'DevOps' },
               ].map((tool, idx) => (
                 <div 
                   key={tool.name}
