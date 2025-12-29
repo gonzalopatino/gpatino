@@ -99,7 +99,7 @@ export default function Contact() {
             </span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to discuss AI, software engineering, or embedded systems?
+            Interested in connecting about software engineering opportunities or projects?
             I'd love to hear from you.
           </p>
         </div>
@@ -111,8 +111,8 @@ export default function Contact() {
             <div className="p-8 bg-dark-900/50 rounded-2xl border border-gray-800">
               <h2 className="text-2xl font-bold text-white mb-4">Let's Connect</h2>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Whether you're looking to collaborate on an AI project, need help with software architecture, 
-                or want to discuss embedded systems solutions, I'm always open to new opportunities and conversations.
+                Whether you're hiring for a software engineering role, have a project idea, 
+                or just want to chat about building software systems, feel free to reach out.
               </p>
               
               <div className="space-y-4">
@@ -180,8 +180,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Currently Available</h3>
                   <p className="text-gray-400 text-sm">
-                    Open to freelance projects, consulting opportunities, and full-time positions
-                    in AI/ML engineering and software development.
+                    Open to full-time software engineering positions and interesting project collaborations.
                   </p>
                 </div>
               </div>
@@ -346,24 +345,23 @@ export default function Contact() {
               </p>
             </div>
             <div className="p-6 bg-dark-900/50 rounded-xl border border-gray-800">
-              <h3 className="text-white font-semibold mb-2">Do you take on freelance projects?</h3>
+              <h3 className="text-white font-semibold mb-2">What kind of roles are you looking for?</h3>
               <p className="text-gray-400 text-sm">
-                Yes! I'm available for freelance work in AI/ML engineering, full-stack development, 
-                and embedded systems consulting.
+                I'm seeking software engineering positions where I can build systems, 
+                work with APIs, and contribute to product development.
               </p>
             </div>
             <div className="p-6 bg-dark-900/50 rounded-xl border border-gray-800">
               <h3 className="text-white font-semibold mb-2">Can you work remotely?</h3>
               <p className="text-gray-400 text-sm">
-                Absolutely. I have extensive experience working with distributed teams across 
-                different time zones.
+                Yes. I'm comfortable working remotely and collaborating with distributed teams.
               </p>
             </div>
             <div className="p-6 bg-dark-900/50 rounded-xl border border-gray-800">
-              <h3 className="text-white font-semibold mb-2">What technologies do you specialize in?</h3>
+              <h3 className="text-white font-semibold mb-2">What technologies do you work with?</h3>
               <p className="text-gray-400 text-sm">
-                My core expertise includes Python, TypeScript, React, PyTorch, LLMs, cloud services, 
-                and embedded systems (ESP32, STM32).
+                Python, TypeScript, JavaScript, C/C++, React, Node.js, Django, PostgreSQL, 
+                REST APIs, Docker, and Git.
               </p>
             </div>
           </div>
