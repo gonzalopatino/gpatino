@@ -51,13 +51,13 @@ export default function Home() {
 
               {/* Role badges */}
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/30 text-primary-400 text-sm font-medium inline-flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <span className="px-4 py-2 rounded-full bg-primary-500/15 border-2 border-primary-500/50 text-primary-400 text-base font-semibold inline-flex items-center gap-2 shadow-lg shadow-primary-500/10">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
                   </svg>
                   Software Engineer
                 </span>
-                <span className="px-3 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-sm font-medium inline-flex items-center gap-1.5">
+                <span className="px-3 py-1.5 rounded-full bg-dark-800/50 border border-dark-600/30 text-dark-400 text-sm font-medium inline-flex items-center gap-1.5">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
                   </svg>
@@ -131,7 +131,7 @@ export default function Home() {
                   { prefix: '$', text: 'cat skills.json' },
                   { text: '{"core": ["Python", "TypeScript", "C++"]}', color: 'text-accent-cyan' },
                   { prefix: '$', text: 'cat focus.txt' },
-                  { text: 'Backend Systems, APIs, Full Stack', color: 'text-dark-300' },
+                  { text: 'Systems Design, APIs, Data Workflows', color: 'text-dark-300' },
                 ]}
               />
             </div>

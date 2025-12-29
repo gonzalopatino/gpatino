@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: 'Gonzalo Patino',
   role: 'Software Engineer & Computer Scientist',
-  tagline: 'Building software systems that solve real problems',
+  tagline: 'Building end-to-end software systems that solve real problems',
   email: 'gpatinoc92@gmail.com',
   location: 'Canada, United States',
-  heroTagline: 'I build end-to-end software systems from system design through deployment. I focus on clean architecture, reliable APIs, data workflows, and automation that improves quality and supportability. I integrate AI capabilities when they add clear value inside product workflows.',
+  heroTagline: 'I build end-to-end software systems from system design through deployment. I focus on clean architecture, reliable APIs, data workflows, and automation that improve product quality and developer velocity. I integrate AI capabilities when they add clear value inside product workflows.',
   
   social: {
     github: 'https://github.com/gonzalopatino',
