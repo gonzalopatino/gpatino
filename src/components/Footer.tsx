@@ -53,16 +53,7 @@ export default function Footer() {
                   Resume
                 </Link>
               </li>
-              <li>
-                <a
-                  href={siteConfig.social.thinksenselabs}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-dark-400 hover:text-primary-400 transition-colors"
-                >
-                  ThinkSense Labs
-                </a>
-              </li>
+
             </ul>
           </div>
 
