@@ -75,8 +75,8 @@ export default function Home() {
                   View Projects
                   <ArrowRightIcon className="ml-2" size={18} />
                 </Button>
-                <Button as="a" href={siteConfig.social.thinksenselabs} target="_blank" rel="noopener noreferrer" variant="outline" size="lg">
-                  ThinkSense Labs
+                <Button as="link" to="/contact" variant="outline" size="lg">
+                  Get in Touch
                 </Button>
               </div>
 

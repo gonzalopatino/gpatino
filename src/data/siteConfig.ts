@@ -10,7 +10,6 @@ export const siteConfig = {
     github: 'https://github.com/gonzalopatino',
     linkedin: 'https://linkedin.com/in/gonzalopatino',
     portfolio: 'https://gonzalopatino.github.io/gpatino/',
-    thinksenselabs: 'https://www.thinksenselabs.com',
     resumeUrl: 'https://gonzalopatino.github.io/gpatino/resume.pdf',
   },
 
